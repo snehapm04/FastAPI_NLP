@@ -1,8 +1,18 @@
 import os
 from dotenv import load_dotenv
 
+# Load environment variables from .env
 load_dotenv()
 
-TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
-SEARCH_RECENT_URL = "https://api.twitter.com/2/tweets/search/recent"
-TWEET_FIELDS = "tweet.fields=author_id,conversation_id,created_at,public_metrics"
+# Twitter API credentials
+TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
+
+# Hazard-related keywords
+HAZARD_KEYWORDS = [
+    "ocean hazard", "tsunami", "cyclone", "flood", "storm surge",
+    "landslide", "heavy rain", "high waves", "swell surge"
+]
+
+# Default configuration
+DEFAULT_MAX_RESULTS = 20  # Safe number to avoid rate limits
+TIME_WINDOW_HOURS = 2   # Only fetch last 2 hours

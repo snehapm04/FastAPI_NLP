@@ -10,7 +10,7 @@ app = FastAPI(title="INCOIS Hazard NLP Engine", version="1.0")
 async def fetch_posts(
     hazard: str = Query(None, description="Hazard filter (e.g., cyclone, flood)"),
     location: str = Query(None, description="Location filter (e.g., Andhra Pradesh, Chennai)"),
-    max_results: int = Query(20, le=50, description="Max results (<=50)")
+    max_results: int = Query(10, le=50, description="Max results (10-50)")
 ):
     query, start_time, raw = await fetch_tweets(hazard, location, max_results)
 
@@ -19,6 +19,11 @@ async def fetch_posts(
         text = tweet["text"]
 
         classification = classify_hazard(text)
+        
+        # Skip posts with "unknown" or "not_hazard" classifications
+        if classification in ["unknown", "not_hazard"]:
+            continue
+            
         keyword_freq = extract_keywords(text)
         metrics = tweet["public_metrics"]
 

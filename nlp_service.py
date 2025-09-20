@@ -80,78 +80,78 @@ def identify_specific_hazard(text: str) -> str:
     text_lower = text.lower()
     
     # Check for specific hazard keywords with context validation
-hazard_contexts = {
-    "flood": [
-        "flood", "flooding", "flooded", "water level", "inundation",
-        "sea flooding", "coastal inundation", "submerged"
-    ],
-    "cyclone": [
-        "cyclone", "hurricane", "typhoon", "tropical storm", "windstorm",
-        "gale winds", "landfall", "severe storm", "super cyclone"
-    ],
-    "tsunami": [
-        "tsunami", "tidal wave", "seismic wave", "earthquake wave",
-        "underwater quake", "seaquake", "aftershock waves"
-    ],
-    "storm surge": [
-        "storm surge", "coastal flooding", "sea water rise",
-        "wave surge", "ocean surge", "cyclone surge"
-    ],
-    "heavy rain": [
-        "heavy rain", "downpour", "torrential rain", "rainfall",
-        "cloudburst", "monsoon rain"
-    ],
-    "high waves": [
-        "high waves", "rough seas", "wave height", "giant waves",
-        "rogue wave", "freak wave", "swells", "abnormal waves"
-    ],
-    "swell surge": [
-        "swell surge", "long period swell", "sea swell",
-        "wave swell", "dangerous swell"
-    ],
-    "coastal erosion": [
-        "coastal erosion", "shoreline erosion", "beach erosion",
-        "sand loss", "coastal retreat"
-    ],
-    "rip current": [
-        "rip current", "strong current", "undertow", "backwash",
-        "dangerous current"
-    ],
-    "sea level rise": [
-        "sea level rise", "rising sea", "ocean rise", "coastal submergence"
-    ],
-    "boat capsized": [
-        "boat capsized", "boat overturned", "capsize", "fishing boat sunk"
-    ],
-    "shipwreck": [
-        "shipwreck", "vessel sunk", "ship grounded", "maritime accident"
-    ],
-    "fishermen missing": [
-        "fishermen missing", "missing fishermen", "lost at sea", "crew missing"
-    ],
-    "port closure": [
-        "port closure", "harbor closed", "fishing ban", "shipping stopped"
-    ],
-    "oil spill": [
-        "oil spill", "oil leakage", "tanker spill", "marine oil pollution"
-    ],
-    "algal bloom": [
-        "algal bloom", "red tide", "green tide", "toxic algae"
-    ],
-    "fish kill": [
-        "fish kill", "dead fish", "mass fish death", "floating fish"
-    ],
-    "marine pollution": [
-        "marine pollution", "sea pollution", "plastic waste", "chemical spill",
-        "ocean pollution", "marine debris"
-    ],
-    "not_hazard": [
-        "normal", "clear sky", "safe", "no risk", "good weather"
-    ],
-    "unknown": [
-        "uncertain", "not sure", "unknown", "unidentified", "other"
-    ]
-}
+    hazard_contexts = {
+        "flood": [
+            "flood", "flooding", "flooded", "water level", "inundation",
+            "sea flooding", "coastal inundation", "submerged"
+        ],
+        "cyclone": [
+            "cyclone", "hurricane", "typhoon", "tropical storm", "windstorm",
+            "gale winds", "landfall", "severe storm", "super cyclone"
+        ],
+        "tsunami": [
+            "tsunami", "tidal wave", "seismic wave", "earthquake wave",
+            "underwater quake", "seaquake", "aftershock waves"
+        ],
+        "storm surge": [
+            "storm surge", "coastal flooding", "sea water rise",
+            "wave surge", "ocean surge", "cyclone surge"
+        ],
+        "heavy rain": [
+            "heavy rain", "downpour", "torrential rain", "rainfall",
+            "cloudburst", "monsoon rain"
+        ],
+        "high waves": [
+            "high waves", "rough seas", "wave height", "giant waves",
+            "rogue wave", "freak wave", "swells", "abnormal waves"
+        ],
+        "swell surge": [
+            "swell surge", "long period swell", "sea swell",
+            "wave swell", "dangerous swell"
+        ],
+        "coastal erosion": [
+            "coastal erosion", "shoreline erosion", "beach erosion",
+            "sand loss", "coastal retreat"
+        ],
+        "rip current": [
+            "rip current", "strong current", "undertow", "backwash",
+            "dangerous current"
+        ],
+        "sea level rise": [
+            "sea level rise", "rising sea", "ocean rise", "coastal submergence"
+        ],
+        "boat capsized": [
+            "boat capsized", "boat overturned", "capsize", "fishing boat sunk"
+        ],
+        "shipwreck": [
+            "shipwreck", "vessel sunk", "ship grounded", "maritime accident"
+        ],
+        "fishermen missing": [
+            "fishermen missing", "missing fishermen", "lost at sea", "crew missing"
+        ],
+        "port closure": [
+            "port closure", "harbor closed", "fishing ban", "shipping stopped"
+        ],
+        "oil spill": [
+            "oil spill", "oil leakage", "tanker spill", "marine oil pollution"
+        ],
+        "algal bloom": [
+            "algal bloom", "red tide", "green tide", "toxic algae"
+        ],
+        "fish kill": [
+            "fish kill", "dead fish", "mass fish death", "floating fish"
+        ],
+        "marine pollution": [
+            "marine pollution", "sea pollution", "plastic waste", "chemical spill",
+            "ocean pollution", "marine debris"
+        ],
+        "not_hazard": [
+            "normal", "clear sky", "safe", "no risk", "good weather"
+        ],
+        "unknown": [
+            "uncertain", "not sure", "unknown", "unidentified", "other"
+        ]
+    }
 
     
     for hazard_type, keywords in hazard_contexts.items():
@@ -211,3 +211,4 @@ def summarize_keywords(posts: list) -> dict:
     for post in posts:
         counter.update(post.get("keyword_frequency", {}))
     return dict(counter)
+

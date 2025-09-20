@@ -27,3 +27,4 @@ async def fetch_tweets(hazard: str = None, location: str = None, max_results: in
         raise Exception(f"Twitter API error: {response.status_code} {response.text}")
 
     return query, start_time, response.json()
+
